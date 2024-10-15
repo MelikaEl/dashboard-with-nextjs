@@ -18,7 +18,7 @@ export default function EditInvoiceForm({
   invoice: InvoiceForm;
   customers: CustomerField[];
 }) {
-  const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
+  const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);//This line creates a new function updateInvoiceWithId by partially applying the updateInvoice function. Here's a simple explanation: updateInvoice is likely a function that updates an invoice and requires an invoice ID as its first argument.2. bind(null, invoice.id) creates a new function where the first argument of updateInvoice is preset to invoice.id.This new function, updateInvoiceWithId, can be called without needing to specify the invoice ID again.The purpose is to create a customized version of updateInvoice that's specific to the current invoice being edited. This makes it easier to use as the action prop for the form, as it doesn't need any additional arguments when called.
   return (
     <form  action={updateInvoiceWithId}>
       <div className="rounded-md bg-gray-50 p-4 md:p-6">
